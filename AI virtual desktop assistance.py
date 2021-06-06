@@ -28,7 +28,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("I am Jarvis Sir. Please tell me how may I help you")       
+    speak("I am Jarvis.How may I help you?")       
 
 def takeCommand():
     #It takes microphone input from the user and returns string output
@@ -54,8 +54,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('youremail@gmail.com', 'your-password')
-    server.sendmail('youremail@gmail.com', to, content)
+    server.login('abc123@gmail.com', 'password')
+    server.sendmail('abc123@gmail.com', to, content)
     server.close()
 
 if __name__ == "__main__":
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
 
         elif 'play music' in query:
-            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2'
+            music_dir = 'D:\\music\\songs\\Fav Song'
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
@@ -94,16 +94,16 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "C:\\Users\\hppc\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
 
-        elif 'email to harry' in query:
+        elif 'email to abcxyz' in query:
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "harryyourEmail@gmail.com"    
+                to = "abcxyz@gmail.com"    
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
-                speak("Sorry my friend harry bhai. I am not able to send this email")    
+                speak("Sorry! I am not able to send this email")    
